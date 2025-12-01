@@ -60,11 +60,11 @@ elif st.session_state.page == "page3":
             
             # Coba baca file pertama
             try:
-                df1 = pd.read_csv("Sebaran FTI[1].csv", skiprows=4)
+                df1 = pd.read_csv("Sebaran_LFD_FTI.csv", skiprows=4)
                 df1['NIM'] = df1['NIM'].astype(str) # Pastikan NIM jadi string
                 frames.append(df1)
             except FileNotFoundError:
-                st.warning("⚠️ File 'Sebaran FTI[1].csv' tidak ditemukan.")
+                st.warning("⚠️ File 'Sebaran_LFD_FTI.csv' tidak ditemukan.")
 
             # Coba baca file kedua
             try:
