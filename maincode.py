@@ -77,7 +77,7 @@ elif st.session_state.page == "page3":
 
                 # Daftar kolom tanggal modul (15/09 SUDAH DIHAPUS dari daftar ini)
                 # Sesuaikan nama kolom persis dengan di CSV (termasuk '11-Oct')
-                date_cols = ["29/09", "13/10", "27/10", "11-Oct"]
+                date_cols = ["29/09", "13/10", "27/10", "11/10"]
                 
                 cols = st.columns(len(date_cols))
                 
