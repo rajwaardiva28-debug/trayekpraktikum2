@@ -192,6 +192,15 @@ elif st.session_state.page.startswith("modul_"):
                     f'<iframe src="https://drive.google.com/file/d/{FILE_ID_TP}/preview" width="100%" height="600"></iframe>',
                     height=600,
                 )
+
+            with tab3:
+                st.write("**Handout Praktikum**")
+                st.info("Print handout berikut sebelum praktikum dimulai.")
+                FILE_ID_HP = "177JjjxFBJOiS0EJN6JuwFo_aVy5-kXI8"
+                components.html(
+                f'<iframe src="https://drive.google.com/file/d/{FILE_ID_HP}/preview" width="100%" height="600"></iframe>',
+                height=600,
+            )
     
 
         # JIKA LKD
