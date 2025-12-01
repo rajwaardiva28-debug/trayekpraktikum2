@@ -174,7 +174,7 @@ elif st.session_state.page.startswith("modul_"):
             st.title("Modul 01 – Dasar Pengukuran (LFD)")
             st.markdown("### Praktikum Fisika Dasar")
             
-            tab1, tab2, tab3 = st.tabs(["📄 File Modul", "📝 Tugas Pendahuluan", "Handout Praktikum"])
+            tab1, tab2, tab3 = st.tabs(["📄 File Modul", "📝 Tugas Pendahuluan", "📑 Handout Praktikum"])
             
             with tab1:
                 st.write("**Modul Praktikum**")
