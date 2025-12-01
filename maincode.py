@@ -153,9 +153,9 @@ elif st.session_state.page.startswith("modul_"):
             height=600,
         )
         st.subheader("Jurnal Praktikum")
-        FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
+        FILE_ID = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
         st.components.v1.html(
-            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
+            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID}" width="100%" height="100"></iframe>',
             height=100,
         )
 
