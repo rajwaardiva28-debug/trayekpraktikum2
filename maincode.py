@@ -153,13 +153,8 @@ elif st.session_state.page == "page3":
 elif st.session_state.page.startswith("modul_"):
     nomor_modul = st.session_state.page.split("_")[1]
 
-    # Logika Tombol Kembali
-    if st.session_state.pilihan == "LKD":
-        func_kembali = lambda: st.session_state.update(page="page2")
-        label_kembali = "⬅️ Kembali ke Menu LKD"
-    else:
-        func_kembali = lambda: st.session_state.update(page="page3")
-        label_kembali = "⬅️ Kembali ke Menu LFD"
+    func_kembali = lambda: st.session_state.update(page="page3")
+    label_kembali = "⬅️ Kembali ke Menu LFD"
 
     # --- KONTEN MODUL 1 ---
     if nomor_modul == "1":
@@ -190,19 +185,7 @@ elif st.session_state.page.startswith("modul_"):
 
         # JIKA PILIHAN LKD (KIMIA)
         else:
-            st.title("Modul 1 – Reaksi-reaksi Kimia (LKD)")
-            st.subheader("🎯 Modul Praktikum")
-            FILE_ID = "1f8bEu46KVdLVC_pZjucA7H-dtIyj09Us"
-            components.html(
-                f'<iframe src="https://drive.google.com/file/d/{FILE_ID}/preview" width="100%" height="600"></iframe>',
-                height=600,
-            )
-            st.subheader("Jurnal Praktikum")
-            FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
-            components.html(
-                f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
-                height=100,
-            )
+            st.title(f"Modul 2 ({st.session_state.pilihan})")
 
     # --- MODUL 2, DST ---
     elif nomor_modul == "2":
