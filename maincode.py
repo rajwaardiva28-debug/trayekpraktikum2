@@ -139,4 +139,20 @@ elif st.session_state.page.startswith("modul_"):
         )
         st.subheader("Jurnal Praktikum")
         FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
-        st.
+        st.components.v1.html(
+            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
+            height=100,
+        )
+
+    elif nomor_modul == "2":
+        st.title("Modul 2")
+        st.write("Konten Modul 2...")
+    
+    # ... Lanjutkan untuk modul lainnya ...
+    
+    else:
+        st.title(f"Modul {nomor_modul}")
+        st.write("Konten belum tersedia.")
+
+    st.write("---")
+    st.button(label_kembali, on_click=kembali_func)
