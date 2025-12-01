@@ -187,7 +187,7 @@ elif st.session_state.page.startswith("modul_"):
             with tab2:
                 st.write("**Tugas Pendahuluan (TP)**")
                 st.info("Kerjakan soal berikut sebelum praktikum dimulai.")
-                FILE_ID_TP = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG" 
+                FILE_ID_TP = "1iOGIx1C-d9moDGba_KkjZ7v_h370ilWC" 
                 components.html(
                     f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID_TP}" width="100%" height="400"></iframe>',
                     height=400,
