@@ -60,19 +60,19 @@ elif st.session_state.page == "page3":
             
             # Coba baca file pertama
             try:
-                df1 = pd.read_csv("sebaranfti1.csv", skiprows=4)
+                df1 = pd.read_csv("Sebaran_LFD_FTI1.csv", skiprows=4)
                 df1['NIM'] = df1['NIM'].astype(str) # Pastikan NIM jadi string
                 frames.append(df1)
             except FileNotFoundError:
-                st.warning("⚠️ File 'sebaranfti1.csv' tidak ditemukan.")
+                st.warning("⚠️ File 'Sebaran_LFD_FTI1.csv' tidak ditemukan.")
 
             # Coba baca file kedua
             try:
-                df2 = pd.read_csv("sebaranfti2.csv", skiprows=4)
+                df2 = pd.read_csv("Sebaran_LFD_FTI2.csv", skiprows=4)
                 df2['NIM'] = df2['NIM'].astype(str) # Pastikan NIM jadi string
                 frames.append(df2)
             except FileNotFoundError:
-                st.warning("⚠️ File 'sebaranfti2.csv' tidak ditemukan.")
+                st.warning("⚠️ File 'Sebaran_LFD_FTI2.csv' tidak ditemukan.")
 
             # 2. GABUNGKAN DATA (jika ada file yang berhasil dibaca)
             if frames:
@@ -152,9 +152,9 @@ elif st.session_state.page.startswith("modul_"):
             height=600,
         )
         st.subheader("Jurnal Praktikum")
-        FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
+        FILE_ID = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
         st.components.v1.html(
-            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
+            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID}" width="100%" height="100"></iframe>',
             height=100,
         )
 
