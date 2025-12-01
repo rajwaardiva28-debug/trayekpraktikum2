@@ -63,16 +63,41 @@ if st.session_state.page == "page1":
 
 elif st.session_state.page == "page2":
     st.title("Praktikum LKD")
-    st.write(f"Login sebagai: {st.session_state.saved_nim}")
-    st.write("Silakan pilih modul yang ingin kamu kerjakan:")
+    st.write("Selamat datang di praktikum LKD!")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    with col1: st.button("Modul 1", on_click=lambda: pilih_modul(1))
-    with col2: st.button("Modul 2", on_click=lambda: pilih_modul(2))
-    with col3: st.button("Modul 3", on_click=lambda: pilih_modul(3))
-    with col4: st.button("Modul 4", on_click=lambda: pilih_modul(4))
-    with col5: st.button("Modul 5", on_click=lambda: pilih_modul(5))
+    st.subheader("🎯 Modul Praktikum")
+    FILE_ID = "1f8bEu46KVdLVC_pZjucA7H-dtIyj09Us"
 
+    st.components.v1.html(
+        f"""
+        <iframe src="https://drive.google.com/file/d/{FILE_ID}/preview"
+            width="100%" height="600"></iframe>
+        """,
+            height=600,
+        )
+
+    st.subheader("Jurnal Praktikum")
+    FILE_ID2 = "114LSosxqP_GIZ8KGI1nZpno_0L1e23BR"
+        
+    st.components.v1.html(
+        f"""
+        <iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID2}"
+            width="100%" height="200"></iframe>
+        """,
+            height=200,
+        )
+
+    st.subheader("Video Praktikum")
+    FILE_ID3 = "1qQ4ROgoR1X3yalDSmubNbIP3OSDJLTT4"
+        
+    st.components.v1.html(
+        f"""
+        <iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID3}"
+            width="100%" height="200"></iframe>
+        """,
+            height=200,
+        )
+    
     st.write("---")
     st.button("⬅️ Kembali ke halaman awal", on_click=lambda: st.session_state.update(page="page1"))
 
