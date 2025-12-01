@@ -54,58 +54,65 @@ elif st.session_state.page == "page3":
         st.warning("Silakan masukkan NIM di halaman awal.")
     else:
         try:
-            # 1. BACA FILE KHUSUS FTI
-            # Tidak pakai skiprows karena header ada di baris pertama
+            # 1. BACA FILE (Header di baris pertama, jadi tidak perlu skiprows)
             df = pd.read_csv("Sebaran_LFD_FTI.csv")
             
-            # Pastikan kolom NIM dibaca sebagai string agar cocok
+            # Pastikan kolom NIM dibaca sebagai string
             df['NIM'] = df['NIM'].astype(str)
             
             # 2. CARI DATA MAHASISWA
             student_data = df[df['NIM'] == nim_cari]
 
             if not student_data.empty:
+                # Ambil Data Diri
                 nama_mhs = student_data.iloc[0]['NAMA']
-                st.success(f"Mahasiswa ditemukan: **{nama_mhs}** (NIM: {nim_cari})")
+                grup_mhs = student_data.iloc[0]['Grup']  # Mengambil data kolom Grup
                 
-                st.subheader("Jadwal & Modul Praktikum Anda")
+                st.success(f"Mahasiswa ditemukan: **{nama_mhs}**")
+                st.write(f"**NIM:** {nim_cari}")
+                st.info(f"**Grup:** {grup_mhs}") # Menampilkan Grup
                 
-                # Daftar kolom tanggal SESUAI FILE FTI
-                date_cols = ["15/09", "29/09", "13/10", "27/10", "11-Oct"]
+                st.subheader("Jadwal & Modul Praktikum")
+                st.write("Berikut adalah jadwal praktikum Anda:")
+
+                # Daftar kolom tanggal modul (15/09 SUDAH DIHAPUS dari daftar ini)
+                # Sesuaikan nama kolom persis dengan di CSV (termasuk '11-Oct')
+                date_cols = ["29/09", "13/10", "27/10", "11-Oct"]
                 
                 cols = st.columns(len(date_cols))
                 
                 for i, date_col in enumerate(date_cols):
                     with cols[i]:
-                        st.write(f"📅 **{date_col}**")
+                        # Tampilkan Tanggal sebagai Header Kecil
+                        st.markdown(f"##### {date_col}")
                         
                         if date_col in student_data.columns:
                             kode_modul = student_data.iloc[0][date_col]
                             
-                            # Cek jika sel tidak kosong (NaN)
+                            # Cek validitas kode modul
                             if pd.notna(kode_modul):
-                                st.info(f"Kode: {kode_modul}")
+                                st.write(f"Kode: **{kode_modul}**")
                                 
                                 try:
                                     # Ambil angka dari string (contoh: "M01" -> 1)
                                     nomor_modul_int = int(''.join(filter(str.isdigit, str(kode_modul))))
                                     
-                                    # Tombol untuk masuk ke modul tersebut
+                                    # Tombol Buka Modul
                                     st.button(
                                         f"Buka {kode_modul}", 
                                         key=f"btn_{date_col}",
                                         on_click=lambda m=nomor_modul_int: pilih_modul(m)
                                     )
                                 except ValueError:
-                                    # Jika isinya bukan kode modul (misal huruf 'P' atau 'E')
+                                    # Jika isinya bukan format modul (misal kosong atau text lain)
                                     st.caption("-") 
                             else:
-                                st.write("-")
+                                st.caption("Libur / Kosong")
                         else:
                             st.caption("Jadwal Tdk Ada")
             else:
-                st.error(f"NIM {nim_cari} tidak ditemukan dalam data FTI.")
-                st.write("Pastikan NIM benar atau hubungi asisten.")
+                st.error(f"NIM {nim_cari} tidak ditemukan dalam data.")
+                st.write("Pastikan file CSV benar dan NIM sesuai.")
 
         except FileNotFoundError:
             st.error("File 'Sebaran_LFD_FTI.csv' tidak ditemukan. Harap unggah file tersebut.")
@@ -120,6 +127,7 @@ elif st.session_state.page == "page3":
 elif st.session_state.page.startswith("modul_"):
     nomor_modul = st.session_state.page.split("_")[1]
 
+    # Tentukan tombol kembali arahnya ke mana
     if st.session_state.pilihan == "LKD":
         kembali_func = lambda: st.session_state.update(page="page2")
         label_kembali = "⬅️ Kembali ke Menu LKD"
@@ -127,6 +135,7 @@ elif st.session_state.page.startswith("modul_"):
         kembali_func = lambda: st.session_state.update(page="page3")
         label_kembali = "⬅️ Kembali ke Menu LFD"
 
+    # Konten Modul
     if nomor_modul == "1":
         st.title("Modul 1")
         st.write("Selamat datang di Modul 1!")
@@ -147,12 +156,30 @@ elif st.session_state.page.startswith("modul_"):
     elif nomor_modul == "2":
         st.title("Modul 2")
         st.write("Konten Modul 2...")
-    
-    # ... Lanjutkan untuk modul lainnya ...
+        
+    elif nomor_modul == "3":
+        st.title("Modul 3")
+        st.write("Konten Modul 3...")
+
+    elif nomor_modul == "4":
+        st.title("Modul 4")
+        st.write("Konten Modul 4...")
+
+    elif nomor_modul == "5":
+        st.title("Modul 5")
+        st.write("Konten Modul 5...")
+        
+    elif nomor_modul == "11": # Contoh jika ada M11
+        st.title("Modul 11")
+        st.write("Konten Modul 11...")
+        
+    elif nomor_modul == "12": # Contoh jika ada M12
+        st.title("Modul 12")
+        st.write("Konten Modul 12...")
     
     else:
         st.title(f"Modul {nomor_modul}")
-        st.write("Konten belum tersedia.")
+        st.write("Modul ini belum tersedia kontennya.")
 
     st.write("---")
     st.button(label_kembali, on_click=kembali_func)
