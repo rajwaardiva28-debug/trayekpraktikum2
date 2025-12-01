@@ -201,4 +201,17 @@ elif st.session_state.page.startswith("modul_"):
             FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
             components.html(
                 f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
-                height=100
+                height=100,
+            )
+
+    # --- MODUL 2, DST ---
+    elif nomor_modul == "2":
+        st.title(f"Modul 2 ({st.session_state.pilihan})")
+        st.write("Konten belum tersedia.")
+
+    else:
+        st.title(f"Modul {nomor_modul}")
+        st.write("Konten modul ini belum tersedia.")
+
+    st.write("---")
+    st.button(label_kembali, on_click=func_kembali)
