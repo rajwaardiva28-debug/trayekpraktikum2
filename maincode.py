@@ -56,7 +56,7 @@ elif st.session_state.page == "page3":
     else:
         try:
             # Membaca CSV, skiprows=4 karena header asli ada di baris ke-5
-            df = pd.read_csv("Sebaran_LFD_FTI.csv", skiprows=4)
+            df = pd.read_csv("sebaran_LFD.csv", skiprows=4)
             
             # Pastikan kolom NIM dibaca sebagai string agar cocok dengan input
             df['NIM'] = df['NIM'].astype(str)
@@ -143,9 +143,9 @@ elif st.session_state.page.startswith("modul_"):
         )
         
         st.subheader("Jurnal Praktikum")
-        FILE_ID = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
+        FILE_ID1 = "1wSQZtgceUIY-HjzbWspSWlK8KkViBtkG"
         st.components.v1.html(
-            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID}" width="100%" height="100"></iframe>',
+            f'<iframe src="https://drive.google.com/embeddedfolderview?id={FILE_ID1}" width="100%" height="100"></iframe>',
             height=100,
         )
 
