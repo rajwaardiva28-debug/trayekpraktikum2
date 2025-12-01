@@ -178,7 +178,7 @@ elif st.session_state.page.startswith("modul_"):
             
             with tab1:
                 st.write("**Modul Praktikum**")
-                FILE_ID_LFD = "1f8bEu46KVdLVC_pZjucA7H-dtIyj09Us" 
+                FILE_ID_LFD = "13kA_JpbASIMrrpECbW3Ijv2DICt2CKBO" 
                 components.html(
                     f'<iframe src="https://drive.google.com/file/d/{FILE_ID_LFD}/preview" width="100%" height="600"></iframe>',
                     height=600,
